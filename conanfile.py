@@ -9,7 +9,7 @@ class NoStdRecipe(ConanFile):
 	# Optional metadata
 	license = "MIT"
 	author = "Shtille v.shtille@gmail.com"
-	url = "<Package recipe repository url here, for issues about the package>"
+	url = "https://github.com/Shtille/nostd"
 	description = "Custom implementation of containers and allocators"
 	topics = ("container", "allocator")
 
