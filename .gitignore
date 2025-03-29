@@ -1,0 +1,7 @@
+# main project
+[Bb]uild/
+CMakeUserPresets.json
+
+# test package
+test_package/[Bb]uild/
+test_package/CMakeUserPresets.json
