@@ -54,23 +54,7 @@ jobs:
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
-    - name: Conan installation
-      id: conan
-      uses: turtlebrowser/get-conan@v1.0
-
-    - name: Conan version
-      run: echo "${{ steps.conan.outputs.version }}"
-
-    - name: Cache Conan Dependencies
-      id: cache-conan
-      uses: actions/cache@v2
-      with:
-        path: path/to/.conan2
-        key: hashFiles('**/conanfile.py')
-    # if we did hit the cache, then you do not want to create a new default  
-    # profile since you already have one
-    - if: ${{steps.cache-conan.outputs.cache-hit != 'true'}}
-      name: Create default Conan profile
+    - name: Create default Conan profile
       run: conan profile new default --detect
 
     - name: Conan install dependencies
