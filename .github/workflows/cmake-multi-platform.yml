@@ -62,12 +62,11 @@ jobs:
       run: conan install . --output-folder=build --build=missing
 
     - name: Configure CMake
-      run: |
-        echo "Setting preset depending on platform"
-    - if: ${{ matrix.os == "ubuntu-latest" }}
-      run: cmake --preset conan-release
-    - if: ${{ matrix.os == "windows-latest" }}
-      run: cmake --preset conan-default
+      run: cmake --preset "{{'conan-default' if eq matrix.os 'windows-latest' else 'conan-release'}}"
+    #- if: ${{ matrix.os == "ubuntu-latest" }}
+    #  run: cmake --preset conan-release
+    #- if: ${{ matrix.os == "windows-latest" }}
+    #  run: cmake --preset conan-default
 
     - name: Build
       run: cmake --build --preset conan-release
