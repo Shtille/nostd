@@ -54,7 +54,6 @@ namespace utility {
 		{
 			first = move(other.first);
 			second = move(other.second);
-			return *this;
 		}
 		bool operator ==(const pair& other) const
 		{
