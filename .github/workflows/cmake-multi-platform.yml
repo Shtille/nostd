@@ -59,12 +59,7 @@ jobs:
       uses: conan-io/setup-conan@v1
 
     - name: Install Conan dependencies
-      run: |
-           conan install . \
-            -s build_type=${{ matrix.build_type }} \
-            --install-folder=${{ steps.strings.outputs.build-output-dir }} \
-            -pr default \
-            -b=missing
+      run: conan install . --build=missing
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
