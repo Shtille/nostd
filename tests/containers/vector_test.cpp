@@ -3,7 +3,10 @@
 #include <gtest/gtest.h>
 
 class VectorTest : public testing::Test {
+public:
 	typedef nostd::vector<int> Vector;
+
+	using size_type = Vector::size_type;
 protected:
 	void SetUp() override
 	{
@@ -54,7 +57,7 @@ TEST_F(VectorTest, PopBack)
 
 TEST_F(VectorTest, Reserve)
 {
-	Vector::size_type capacity = 4U;
+	size_type capacity = 4U;
 	array->reserve(capacity);
 	EXPECT_EQ(array->size(), 0U);
 	EXPECT_EQ(array->capacity(), capacity);
@@ -62,7 +65,7 @@ TEST_F(VectorTest, Reserve)
 
 TEST_F(VectorTest, Resize)
 {
-	Vector::size_type size = 4U;
+	size_type size = 4U;
 	array->resize(size);
 	EXPECT_EQ(array->size(), size);
 	EXPECT_GE(array->capacity(), size);
