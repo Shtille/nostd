@@ -62,6 +62,9 @@ jobs:
       run: conan install . --output-folder=build --build=missing
 
     - name: Configure CMake
+    - if: ${{ matrix.os == "ubuntu-latest" }}
+      run: cmake --preset conan-release
+    - if: ${{ matrix.os == "windows-latest" }}
       run: cmake --preset conan-default
 
     - name: Build
