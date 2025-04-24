@@ -792,7 +792,6 @@ namespace nostd {
 				x->data = it.node_->data;
 				(void)_insert(x);
 			}
-			return true;
 		}
 		void _set_by_move(set && other) noexcept
 		{
